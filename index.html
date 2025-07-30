@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Saver App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">💧 Water Saver</h1>
+            <p class="subtitle">Track, Save, and Conserve Water</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Water Usage Tracker -->
+            <section class="card usage-tracker">
+                <h2>Daily Water Usage</h2>
+                <div class="water-container">
+                    <div class="water-tank">
+                        <div class="water-level" id="waterLevel"></div>
+                        <div class="water-wave"></div>
+                    </div>
+                    <div class="usage-info">
+                        <p>Today's Usage: <span id="todayUsage">0</span> L</p>
+                        <p>Goal: <span id="dailyGoal">200</span> L</p>
+                        <p>Saved: <span id="waterSaved">0</span> L</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Water Activities -->
+            <section class="card activities">
+                <h2>Log Water Activities</h2>
+                <div class="activity-grid">
+                    <button class="activity-btn" onclick="addActivity('shower', 50)">
+                        <div class="activity-icon">🚿</div>
+                        <span>Shower</span>
+                        <small>~50L</small>
+                    </button>
+                    <button class="activity-btn" onclick="addActivity('bath', 80)">
+                        <div class="activity-icon">🛁</div>
+                        <span>Bath</span>
+                        <small>~80L</small>
+                    </button>
+                    <button class="activity-btn" onclick="addActivity('dishes', 20)">
+                        <div class="activity-icon">🍽️</div>
+                        <span>Dishes</span>
+                        <small>~20L</small>
+                    </button>
+                    <button class="activity-btn" onclick="addActivity('laundry', 100)">
+                        <div class="activity-icon">👕</div>
+                        <span>Laundry</span>
+                        <small>~100L</small>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Water Saving Tips -->
+            <section class="card tips">
+                <h2>Water Saving Tips</h2>
+                <div class="tip-container">
+                    <div class="tip-item active" id="tip1">
+                        <div class="tip-icon">💡</div>
+                        <p>Take shorter showers - save up to 150L per week!</p>
+                    </div>
+                    <div class="tip-item" id="tip2">
+                        <div class="tip-icon">🔧</div>
+                        <p>Fix leaky faucets - a drip can waste 15L per day!</p>
+                    </div>
+                    <div class="tip-item" id="tip3">
+                        <div class="tip-icon">🌱</div>
+                        <p>Collect rainwater for gardening and cleaning!</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Statistics -->
+            <section class="card stats">
+                <h2>Your Impact</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number" id="totalSaved">0</div>
+                        <div class="stat-label">Liters Saved</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="streakDays">0</div>
+                        <div class="stat-label">Day Streak</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="efficiency">0%</div>
+                        <div class="stat-label">Efficiency</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Floating Action Button -->
+        <button class="fab" onclick="showQuickAdd()">
+            <span class="fab-icon">+</span>
+        </button>
+
+        <!-- Quick Add Modal -->
+        <div class="modal" id="quickAddModal">
+            <div class="modal-content">
+                <h3>Quick Add Water Usage</h3>
+                <input type="number" id="customAmount" placeholder="Enter liters">
+                <div class="modal-actions">
+                    <button onclick="addCustomUsage()">Add</button>
+                    <button onclick="hideQuickAdd()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
